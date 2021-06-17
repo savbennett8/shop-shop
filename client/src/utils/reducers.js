@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 import {
     UPDATE_PRODUCTS,
     UPDATE_CATEGORIES,
@@ -30,4 +31,10 @@ export const reducer = (state, action) => {
         default:
             return state;
     }
+};
+
+//helps initialize global state object & provides functionality for updating
+//-----state by running it through the reducer function
+export function useProductReducer(initialState) {
+    return useReducer(reducer, initialState);
 };
